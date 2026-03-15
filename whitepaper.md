@@ -175,7 +175,7 @@ $KAERU is not just a memecoin. It is the foundation of a trustless ecosystem.
 
 ## 8. Roadmap
 
-### Phase 1 — KAERU CASINO
+### Phase 0 — The Origin
 *Now*
 
 - $KAERU lives on pump.fun
@@ -183,14 +183,43 @@ $KAERU is not just a memecoin. It is the foundation of a trustless ecosystem.
 - Developing the KAERU PROTOCOL whitepaper
 - Reaching graduation ($69K market cap)
 - LP locked on graduation
+- $KAERU becomes the center of the entire ecosystem
+
+### Phase 1 — KAERU CASINO
+*Next*
+
+- Launch a new coin on Solana using KAERU PROTOCOL
+- Smart contract with bot tax, dev lock, fixed supply
+- Bot tax is automatically distributed to $KAERU holders in SOL
+- This is the model case — proof that the system works
+- $KAERU holders get priority access
 
 ### Phase 2 — KAERU FACTORY
 *Future*
 
-- Launch KAERU PROTOCOL on Solana
-- A rugless launchpad where every token follows the standard
-- $KAERU holders get priority access
-- Developers who hold $KAERU are listed as trusted
+- Turn KAERU CASINO into an open launchpad
+- Any developer can launch using the same standard
+- Every new token's bot tax flows to $KAERU holders in SOL
+- $KAERU is the trust layer for the entire ecosystem
+- The more tokens launch, the more SOL flows to $KAERU holders
+
+### The Big Picture
+
+```
+$KAERU (Phase 0)
+↓
+KAERU CASINO (Phase 1) → bot tax → $KAERU holders get SOL
+↓
+KAERU FACTORY (Phase 2) → all bot tax → $KAERU holders get SOL
+↓
+$KAERU becomes more valuable
+↓
+More devs want to use KAERU PROTOCOL
+↓
+More SOL to $KAERU holders
+```
+
+$KAERU is not just a coin. It is the foundation everything is built on.
 
 ---
 
