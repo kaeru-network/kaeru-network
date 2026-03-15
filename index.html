@@ -26,7 +26,6 @@
     cursor: default;
   }
 
-  /* Matrix rain background */
   #matrix-bg {
     position: fixed;
     top: 0; left: 0;
@@ -51,7 +50,6 @@
     z-index: 2;
   }
 
-  /* Hero */
   .hero {
     min-height: 100vh;
     display: flex;
@@ -106,7 +104,6 @@
     opacity: 0;
   }
 
-  /* Stats bar */
   .stats-bar {
     display: flex;
     gap: 0;
@@ -150,7 +147,6 @@
 
   .stat-value.red { color: var(--red); }
 
-  /* Manifesto */
   .manifesto {
     padding: 80px 20px;
     max-width: 700px;
@@ -181,7 +177,6 @@
     font-weight: 600;
   }
 
-  /* Pills */
   .pills {
     display: flex;
     flex-wrap: wrap;
@@ -209,7 +204,6 @@
     box-shadow: 0 0 20px rgba(0,255,136,0.2);
   }
 
-  /* CTA */
   .cta-section {
     padding: 60px 20px 100px;
     display: flex;
@@ -253,7 +247,6 @@
     background: rgba(0,255,136,0.05);
   }
 
-  /* Contract */
   .contract {
     padding: 40px 20px;
     text-align: center;
@@ -280,7 +273,6 @@
     border-color: rgba(0,255,136,0.3);
   }
 
-  /* Footer */
   footer {
     padding: 30px 20px;
     text-align: center;
@@ -291,7 +283,6 @@
     opacity: 0.5;
   }
 
-  /* Animations */
   @keyframes fadeIn {
     to { opacity: 1; }
   }
@@ -301,7 +292,6 @@
     to { opacity: 1; transform: translateY(0); }
   }
 
-  /* Scanline effect */
   .hero::before {
     content: '';
     position: absolute;
@@ -317,7 +307,6 @@
     z-index: 0;
   }
 
-  /* Glitch on title hover */
   .ticker:hover {
     animation: glitch 0.3s steps(2) forwards;
   }
@@ -388,6 +377,7 @@
   <section class="cta-section">
     <a href="https://pump.fun/coin/3V9N5MH5ZnTWrka1Z98iTY3ByfUzrK7bwpwr5d2kpump" class="btn btn-primary" target="_blank">Buy on Pump.fun</a>
     <a href="https://twitter.com/kaeru_network" class="btn btn-secondary" target="_blank">@kaeru_network on X</a>
+    <a href="https://github.com/kaeru-network/kaeru-network/blob/main/whitepaper.md" class="btn btn-secondary" target="_blank">Read Whitepaper</a>
   </section>
 
   <div class="contract">
@@ -403,9 +393,6 @@
 </div>
 
 <script>
-// Banner loaded from external file
-
-// Matrix rain
 const canvas = document.getElementById('matrix-bg');
 const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
