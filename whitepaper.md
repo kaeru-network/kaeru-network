@@ -78,27 +78,33 @@ Liquidity is locked permanently at launch. The developer cannot remove it.
 
 ---
 
-## 5. Bot Resistance (TBD)
+## 5. Bot Resistance
 
-*This section is under active development.*
+The goal is not to eliminate bots entirely — bots provide liquidity.
+The goal is to make bots pay more than humans.
 
-The goal is to make bots pay more than humans, while keeping bots as a source of liquidity and jackpot pool funding.
+### Time-based Tax
 
-### Current thinking:
+```
+0–10 seconds   → 50% tax
+10–30 seconds  → 30% tax
+30–60 seconds  → 15% tax
+1–5 minutes    → 5% tax
+5 minutes+     → 0.25% (industry standard)
+```
 
-**Option A: Time-based tax**
-- Buying too early = high tax
-- Later buys = normal fee
+### Why this works
 
-**Option B: Block-based detection**
-- Buys within N blocks of launch = penalized
-- Harder for bots to game
+- Bots that buy instantly pay a heavy tax
+- Humans who wait 5 minutes pay the normal rate
+- "Patience is rewarded. Panic is taxed."
+- Bots still participate, funding the ecosystem
 
-**Option C: Random lock on sell**
-- Sell timing is randomized
-- Bots cannot predict when to dump
+### Dev Hold Cap
 
-*Final design TBD. Community input welcome.*
+- Developer hold is capped at ≤ 10%
+- Dev tokens are locked
+- No surprise dumps from the inside
 
 ---
 
