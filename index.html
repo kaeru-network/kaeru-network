@@ -12,6 +12,7 @@
     --mid-green: #1a3a22;
     --accent: #39ff14;
     --red: #ff4444;
+    --orange: #ff8c00;
     --text: #e8f5e9;
     --muted: #4a7a55;
   }
@@ -50,6 +51,7 @@
     z-index: 2;
   }
 
+  /* ── HERO ── */
   .hero {
     min-height: 100vh;
     display: flex;
@@ -105,8 +107,8 @@
   }
 
   .stats-bar {
-    display: flex;
-    gap: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     max-width: 700px;
     width: 100%;
     margin-top: 48px;
@@ -117,8 +119,17 @@
     opacity: 0;
   }
 
+  @media (max-width: 480px) {
+    .stats-bar {
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .stat:nth-child(2) { border-right: none; }
+    .stat:nth-child(1),
+    .stat:nth-child(2) { border-bottom: 1px solid rgba(0,255,136,0.1); }
+    .stat:nth-child(4) { border-right: none; }
+  }
+
   .stat {
-    flex: 1;
     padding: 20px;
     text-align: center;
     border-right: 1px solid rgba(0,255,136,0.1);
@@ -146,7 +157,9 @@
   }
 
   .stat-value.red { color: var(--red); }
+  .stat-value.orange { color: var(--orange); font-size: 1.1rem; line-height: 1.3; letter-spacing: 0.02em; }
 
+  /* ── MANIFESTO ── */
   .manifesto {
     padding: 80px 20px;
     max-width: 700px;
@@ -204,6 +217,182 @@
     box-shadow: 0 0 20px rgba(0,255,136,0.2);
   }
 
+  /* ── LP TRANSPARENCY ── */
+  .lp-section {
+    padding: 60px 20px;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .lp-box {
+    border: 1px solid rgba(0,255,136,0.2);
+    border-radius: 12px;
+    overflow: hidden;
+    background: rgba(0,255,136,0.02);
+  }
+
+  .lp-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px 24px;
+    border-bottom: 1px solid rgba(0,255,136,0.08);
+    transition: background 0.2s;
+  }
+
+  .lp-row:last-child { border-bottom: none; }
+  .lp-row:hover { background: rgba(0,255,136,0.04); }
+
+  .lp-icon {
+    font-size: 1.4rem;
+    min-width: 32px;
+    margin-top: 2px;
+  }
+
+  .lp-content {}
+
+  .lp-title {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--green);
+    letter-spacing: 0.1em;
+    margin-bottom: 4px;
+  }
+
+  .lp-desc {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+
+  .lp-desc strong { color: var(--text); }
+
+  /* ── DEV BRAND ── */
+  .dev-section {
+    padding: 80px 20px;
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .dev-quote {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(2rem, 5vw, 3.5rem);
+    color: var(--green);
+    letter-spacing: 0.05em;
+    line-height: 1.1;
+    margin: 24px 0;
+    text-shadow: 0 0 30px rgba(0,255,136,0.3);
+  }
+
+  .dev-sub {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.8rem;
+    color: var(--muted);
+    letter-spacing: 0.15em;
+    line-height: 1.8;
+  }
+
+  .dev-sub strong {
+    color: var(--text);
+  }
+
+  /* ── COINS HISTORY ── */
+  .history-section {
+    padding: 60px 20px;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .coin-card {
+    border: 1px solid rgba(0,255,136,0.15);
+    border-radius: 10px;
+    padding: 20px 24px;
+    margin-bottom: 12px;
+    background: rgba(0,255,136,0.02);
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    transition: all 0.2s;
+  }
+
+  .coin-card:hover {
+    border-color: rgba(0,255,136,0.35);
+    background: rgba(0,255,136,0.05);
+  }
+
+  .coin-emoji { font-size: 2rem; min-width: 40px; }
+
+  .coin-info { flex: 1; }
+
+  .coin-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.4rem;
+    color: var(--green);
+    letter-spacing: 0.05em;
+  }
+
+  .coin-desc {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--muted);
+    margin-top: 2px;
+    letter-spacing: 0.05em;
+  }
+
+  .coin-badges {
+    display: flex;
+    gap: 6px;
+    flex-wrap: wrap;
+    margin-top: 8px;
+  }
+
+  .badge {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    padding: 3px 8px;
+    border-radius: 4px;
+    letter-spacing: 0.05em;
+  }
+
+  .badge-green {
+    background: rgba(0,255,136,0.1);
+    border: 1px solid rgba(0,255,136,0.3);
+    color: var(--green);
+  }
+
+  .badge-red {
+    background: rgba(255,68,68,0.1);
+    border: 1px solid rgba(255,68,68,0.3);
+    color: var(--red);
+  }
+
+  .badge-orange {
+    background: rgba(255,140,0,0.1);
+    border: 1px solid rgba(255,140,0,0.3);
+    color: var(--orange);
+  }
+
+  .coin-status {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    text-align: right;
+    color: var(--muted);
+    min-width: 80px;
+  }
+
+  .coming-soon-card {
+    border: 1px dashed rgba(0,255,136,0.2);
+    border-radius: 10px;
+    padding: 20px 24px;
+    text-align: center;
+    color: var(--muted);
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+  }
+
+  /* ── CTA ── */
   .cta-section {
     padding: 60px 20px 100px;
     display: flex;
@@ -247,6 +436,7 @@
     background: rgba(0,255,136,0.05);
   }
 
+  /* ── CONTRACT ── */
   .contract {
     padding: 40px 20px;
     text-align: center;
@@ -283,10 +473,7 @@
     opacity: 0.5;
   }
 
-  @keyframes fadeIn {
-    to { opacity: 1; }
-  }
-
+  @keyframes fadeIn { to { opacity: 1; } }
   @keyframes fadeUp {
     from { opacity: 0; transform: translateY(20px); }
     to { opacity: 1; transform: translateY(0); }
@@ -297,26 +484,28 @@
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
     background: repeating-linear-gradient(
-      0deg,
-      transparent,
-      transparent 2px,
-      rgba(0,0,0,0.03) 2px,
-      rgba(0,0,0,0.03) 4px
+      0deg, transparent, transparent 2px,
+      rgba(0,0,0,0.03) 2px, rgba(0,0,0,0.03) 4px
     );
     pointer-events: none;
     z-index: 0;
   }
 
-  .ticker:hover {
-    animation: glitch 0.3s steps(2) forwards;
-  }
+  .ticker:hover { animation: glitch 0.3s steps(2) forwards; }
 
   @keyframes glitch {
-    0% { text-shadow: 0 0 40px rgba(0,255,136,0.5); }
-    25% { text-shadow: -3px 0 rgba(255,0,0,0.5), 3px 0 rgba(0,255,136,0.5); }
-    50% { text-shadow: 3px 0 rgba(255,0,0,0.5), -3px 0 rgba(0,255,136,0.5); }
-    75% { text-shadow: -2px 0 rgba(0,0,255,0.3), 2px 0 rgba(0,255,136,0.5); }
+    0%   { text-shadow: 0 0 40px rgba(0,255,136,0.5); }
+    25%  { text-shadow: -3px 0 rgba(255,0,0,0.5), 3px 0 rgba(0,255,136,0.5); }
+    50%  { text-shadow: 3px 0 rgba(255,0,0,0.5), -3px 0 rgba(0,255,136,0.5); }
+    75%  { text-shadow: -2px 0 rgba(0,0,255,0.3), 2px 0 rgba(0,255,136,0.5); }
     100% { text-shadow: 0 0 40px rgba(0,255,136,0.5); }
+  }
+
+  .divider {
+    max-width: 700px;
+    margin: 0 auto;
+    border: none;
+    border-top: 1px solid rgba(0,255,136,0.08);
   }
 </style>
 </head>
@@ -326,9 +515,11 @@
 <div class="noise-overlay"></div>
 
 <div class="content">
+
+  <!-- HERO -->
   <section class="hero">
     <div class="banner-wrap">
-      <img src="IMG_9994.jpeg" alt="KAERU NETWORK - Tiny Dev hold" style="width:100%;display:block;">
+      <img src="IMG_9994.jpeg" alt="KAERU NETWORK - Tiny Dev hold">
     </div>
 
     <div class="ticker">$KAERU <span>NETWORK</span></div>
@@ -348,12 +539,13 @@
         <div class="stat-value red">ZERO</div>
       </div>
       <div class="stat">
-        <div class="stat-label">LP Lock</div>
-        <div class="stat-value" style="font-size:1.2rem;white-space:nowrap;">Soon™</div>
+        <div class="stat-label">Initial LP</div>
+        <div class="stat-value orange">Burned on<br>Graduation 🔥</div>
       </div>
     </div>
   </section>
 
+  <!-- MANIFESTO -->
   <section class="manifesto">
     <div class="section-label">// Manifesto</div>
     <p class="manifesto-text">
@@ -367,19 +559,104 @@
 
   <div class="pills">
     <div class="pill">🐸 NO RUG</div>
-    <div class="pill">🔒 LP LOCK ON GRADUATION</div>
+    <div class="pill">🔥 LP BURNED ON GRADUATION</div>
     <div class="pill">👀 TRANSPARENT DEV</div>
     <div class="pill">🌊 DEEP SEA BOND</div>
     <div class="pill">#SOLANA</div>
     <div class="pill">#PUMPFUN</div>
   </div>
 
+  <hr class="divider" style="margin-top:60px;">
+
+  <!-- LP TRANSPARENCY -->
+  <section class="lp-section">
+    <div class="section-label" style="text-align:center;">// LP Transparency</div>
+    <div class="lp-box">
+      <div class="lp-row">
+        <div class="lp-icon">🔥</div>
+        <div class="lp-content">
+          <div class="lp-title">Initial LP — Burned on Graduation</div>
+          <div class="lp-desc">
+            When $KAERU graduates from pump.fun, the initial liquidity is <strong>automatically burned forever</strong> via PumpSwap. No one can touch it. Not even the dev.
+          </div>
+        </div>
+      </div>
+      <div class="lp-row">
+        <div class="lp-icon">🔒</div>
+        <div class="lp-content">
+          <div class="lp-title">Additional LP — Locked via Streamflow</div>
+          <div class="lp-desc">
+            Any additional liquidity added after graduation will be <strong>locked via Streamflow</strong> with proof posted on X immediately. No hidden moves.
+          </div>
+        </div>
+      </div>
+      <div class="lp-row">
+        <div class="lp-icon">👁️</div>
+        <div class="lp-content">
+          <div class="lp-title">Full On-Chain Proof</div>
+          <div class="lp-desc">
+            Every transaction is <strong>verifiable on Solscan</strong>. Trust the code, not the dev — but the dev will prove it anyway.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- DEV BRAND -->
+  <section class="dev-section">
+    <div class="section-label">// The Dev</div>
+    <div class="dev-quote">
+      Trust the code.<br>Not the dev.<br><span style="color:var(--text);opacity:0.5;">But watch the dev anyway.</span>
+    </div>
+    <div class="dev-sub">
+      KAERU is not just a coin.<br>
+      It's a <strong>Dev who builds in public</strong> and proves it every time.<br><br>
+      Every coin launched under KAERU comes with<br>
+      <strong>the same promise: no rug. ever.</strong>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- COINS HISTORY -->
+  <section class="history-section">
+    <div class="section-label" style="text-align:center;margin-bottom:24px;">// Coins by KAERU Dev</div>
+
+    <!-- $KAERU -->
+    <div class="coin-card">
+      <div class="coin-emoji">🐸</div>
+      <div class="coin-info">
+        <div class="coin-name">$KAERU</div>
+        <div class="coin-desc">The original. Born from the deep sea.</div>
+        <div class="coin-badges">
+          <span class="badge badge-green">NO RUG</span>
+          <span class="badge badge-green">DEV &lt;1%</span>
+          <span class="badge badge-orange">LP ON GRADUATION</span>
+        </div>
+      </div>
+      <div class="coin-status">
+        LIVE<br>
+        <span style="color:var(--green);font-size:0.8rem;">●</span>
+      </div>
+    </div>
+
+    <!-- Coming soon -->
+    <div class="coming-soon-card">
+      🐸 Next coin by KAERU dev — coming soon<br>
+      <span style="opacity:0.5;font-size:0.65rem;">Follow @kaeru_network on X for alpha</span>
+    </div>
+  </section>
+
+  <!-- CTA -->
   <section class="cta-section">
     <a href="https://pump.fun/coin/3V9N5MH5ZnTWrka1Z98iTY3ByfUzrK7bwpwr5d2kpump" class="btn btn-primary" target="_blank">Buy on Pump.fun</a>
     <a href="https://twitter.com/kaeru_network" class="btn btn-secondary" target="_blank">@kaeru_network on X</a>
     <a href="https://github.com/kaeru-network/kaeru-network/blob/main/whitepaper.md" class="btn btn-secondary" target="_blank">Read Whitepaper</a>
   </section>
 
+  <!-- CONTRACT -->
   <div class="contract">
     <div class="section-label">// Contract Address</div>
     <div class="contract-addr" onclick="navigator.clipboard.writeText('3V9N5MH5ZnTWrka1Z98iTY3ByfUzrK7bwpwr5d2kpump'); this.innerText='Copied! 🐸'">
@@ -398,7 +675,7 @@ const ctx = canvas.getContext('2d');
 canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
-const chars = 'KAERU01ラグなし正直NETWORK$SOL';
+const chars = 'KAERU01ラグなし正直NETWORK$SOL🐸';
 const fontSize = 14;
 const cols = Math.floor(canvas.width / fontSize);
 const drops = Array(cols).fill(1);
