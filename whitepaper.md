@@ -132,12 +132,44 @@ This creates organic excitement without fake pumps.
 
 $KAERU is the first coin launched under this vision. It exists on pump.fun today.
 
-As KAERU PROTOCOL develops, $KAERU holders will receive:
+### Why hold $KAERU?
 
-- **Priority access** to new token launches built on KAERU PROTOCOL
-- **Recognition** as early believers in the rugless standard
+**1. Priority access**
+When new tokens launch on KAERU PROTOCOL, $KAERU holders get in first — before the public.
 
-$KAERU is not just a memecoin. It is proof that you were here from the beginning.
+**2. SOL rewards**
+Every token launched on KAERU PROTOCOL collects bot tax. A portion of that tax is distributed to $KAERU holders in SOL — automatically.
+
+```
+New token launches on KAERU PROTOCOL
+↓
+Bot tax collected
+↓
+Portion distributed to $KAERU holders in SOL
+```
+
+The more tokens launch on KAERU PROTOCOL, the more SOL flows to $KAERU holders.
+
+**3. Trust proof**
+Holding $KAERU is proof that you believed in honest crypto from the beginning.
+
+### The flywheel
+
+```
+More devs use KAERU PROTOCOL
+↓
+More bot tax collected
+↓
+More SOL to $KAERU holders
+↓
+$KAERU becomes more valuable
+↓
+More devs want to be associated with KAERU
+↓
+More devs use KAERU PROTOCOL
+```
+
+$KAERU is not just a memecoin. It is the foundation of a trustless ecosystem.
 
 ---
 
