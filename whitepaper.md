@@ -1,8 +1,8 @@
 # KAERU PROTOCOL
 ## A Rugless Token Standard on Solana
-### v0.3 — Draft
+### v0.5 — Draft
 
-*by @kaeru_network*
+*by @kaeru_net*
 *Updated: March 2026*
 
 ---
@@ -20,7 +20,13 @@ The problem is not just greed. The problem is that the system makes rugging easy
 - Liquidity is never locked
 - There is no cost to lying
 
-We need a new standard. Not just promises. A system where rugging is structurally difficult.
+But there is a deeper irony.
+
+People escaped banks because they couldn't trust them. Then they invested in anonymous developers who are even less accountable. The problem was never banks. It was trust. And crypto hasn't fixed it — it made it worse.
+
+Platforms profit whether you win or lose. Every rug generates fees. The scammer and the victim are both customers.
+
+We need a new standard. Not just promises. A system where rugging is structurally impossible.
 
 ---
 
@@ -34,13 +40,43 @@ $KAERU was launched on pump.fun as the first honest step. No team. No VC. Tiny d
 
 But a single honest coin is not enough. We need a protocol.
 
+The greatest proof of trust in crypto history was Satoshi disappearing. When the creator left, Bitcoin became truly trustless. That is the standard we are building toward — a system that doesn't need us to be honest. A system that makes dishonesty structurally impossible.
+
 ---
 
-## 3. Solution: KAERU PROTOCOL
+## 3. The World of KAERU
+
+### KAERU NETWORK
+
+KAERU NETWORK is the overarching vision. An ecosystem where honest tokens are the default, not the exception.
+
+### KAERU POND
+
+Inside KAERU NETWORK lives **KAERU POND** — the launchpad. A place where tokens are born with honest structure baked in from the start.
+
+Every token that emerges from KAERU POND is built on KAERU PROTOCOL — the rugless token standard.
+
+```
+KAERU NETWORK（the ecosystem）
+　└── KAERU POND（the launchpad）
+　　　　├── $KAERU（the origin）
+　　　　├── $POND（the first born）
+　　　　└── ...（future tokens, all rugless）
+```
+
+### The Two Tokens
+
+**$KAERU** — The foundation. The origin. Launched on pump.fun before the protocol existed. Holding $KAERU means you believed in honest crypto from the beginning.
+
+**$POND** — The first token born from KAERU POND. Built entirely on KAERU PROTOCOL. The proof that the system works.
+
+---
+
+## 4. Solution: KAERU PROTOCOL
 
 KAERU PROTOCOL is a rugless token standard on Solana.
 
-The goal is simple: make rugging structurally hard, and make honesty the default.
+The goal is simple: make rugging structurally impossible, and make honesty the default.
 
 ### Core Principles
 
@@ -48,17 +84,24 @@ The goal is simple: make rugging structurally hard, and make honesty the default
 - **Dev lock** — developer tokens are locked
 - **Permanent LP lock** — liquidity cannot be removed
 - **Bot resistance** — bots are taxed, not rewarded
-- **Gradual supply release** — prevents whale accumulation at launch
-- **Kaeru Egg** — early buyers face a random lock period
+- **Sell tax + auto buyback** — sell pressure becomes buy pressure
+- **Dev neutralization** — once deployed, the dev cannot interfere
+
+### The Key Insight
+
+Other launchpads lock LP. That prevents the dev from running.
+But it doesn't prevent coordinated dump attacks.
+
+KAERU PROTOCOL addresses both — with three independent layers of defense.
 
 ---
 
-## 4. Tokenomics Design
+## 5. Tokenomics Design
 
-### 4.1 Fixed Supply
+### 5.1 Fixed Supply
 Total supply is fixed at launch. No new tokens can ever be minted. This removes one of the most common rug vectors.
 
-### 4.2 Gradual Supply Release
+### 5.2 Gradual Supply Release
 Inspired by Bitcoin's mining schedule, tokens are not all available at once.
 
 ```
@@ -71,17 +114,22 @@ Over time: Gradually released
 
 This prevents early whales from buying everything and dumping.
 
-### 4.3 Dev Lock
+### 5.3 Dev Lock
 Developer tokens are locked for a fixed period. Selling before unlock is structurally impossible.
 
-### 4.4 Permanent LP Lock
+### 5.4 Permanent LP Lock
 Liquidity is locked permanently at launch. The developer cannot remove it.
+
+### 5.5 Dev Neutralization
+Once the contract is deployed, the developer loses all privileged access. There are no admin functions. No upgrade keys. No hidden backdoors. The dev cannot interfere — even if they wanted to.
+
+This is not a promise. It is enforced by code.
 
 ---
 
-## 5. Two-Layer Defense Against Manipulation
+## 6. Three-Layer Defense Against Manipulation
 
-KAERU PROTOCOL uses two independent systems to protect against bots and coordinated dump attacks.
+KAERU PROTOCOL uses three independent systems to protect against bots, coordinated dumps, and panic selling.
 
 ### Layer 1 — Time-based Bot Tax
 
@@ -96,7 +144,8 @@ KAERU PROTOCOL uses two independent systems to protect against bots and coordina
 **Why this works:**
 - Bots that buy instantly pay a heavy tax
 - Humans who wait 5 minutes pay the normal rate
-- "Patience is rewarded. Panic is taxed."
+- Distributed wallets buying simultaneously are all taxed equally — wallet count is irrelevant
+- *"Patience is rewarded. Panic is taxed."*
 
 ### Layer 2 — Kaeru Egg 🥚
 
@@ -122,8 +171,40 @@ Cannot sell until lock expires
 
 If the lock were fixed (e.g. always 24 hours), attackers could plan around it. Random duration makes coordinated dump attacks structurally unpredictable.
 
-**Design note (TBD):**
-The exact trigger condition — whether Kaeru Egg applies per purchase or only on the first purchase per wallet — is under active consideration. See Section 11.
+### Layer 3 — Sell Tax + Auto Buyback
+
+**The problem this solves:**
+
+Even after the launch window, large holders can slowly dump their position — gradually depressing price without triggering bot tax.
+
+**The solution:**
+
+A sell tax is applied to all sells. Revenue is automatically used to buyback tokens from the market and burn them.
+
+```
+Sell occurs
+↓
+Sell tax collected into pool
+↓
+When pool reaches threshold
+↓
+Auto buyback executed
+↓
+Bought tokens are burned
+↓
+Total supply decreases
+↓
+Remaining tokens become more scarce
+```
+
+**Why this works:**
+
+- Sell pressure is partially converted into buy pressure
+- Every seller contributes to the value of remaining holders
+- The more selling occurs, the more deflationary the token becomes
+- No human controls the buyback — it executes automatically
+
+*"Those who leave fund those who stay."*
 
 ### Dev Hold Cap
 
@@ -133,28 +214,26 @@ The exact trigger condition — whether Kaeru Egg applies per purchase or only o
 
 ---
 
-## 6. Bot Tax Distribution
+## 7. Tax Distribution
 
-Bot tax revenue is split and evolves across phases. As the protocol grows, more value flows to $KAERU holders.
+Tax revenue evolves across phases.
 
-### Phase 1 — KAERU CASINO
+### Phase 1 — KAERU POND launches $POND
 
 ```
 Trade
 ↓
 0.3% fee total
 ↓
-├── 0.1% → Burned (deflationary pressure)
-├── 0.1% → LP (strengthens liquidity)
+├── 0.1% → Burned
+├── 0.1% → LP
 └── 0.1% → $KAERU holders (SOL rewards)
 ```
 
-### Phase 2 — KAERU FACTORY
-
-As more tokens launch on KAERU PROTOCOL, the total bot tax collected grows. At this stage, more flows to $KAERU holders.
+### Phase 2 — KAERU POND becomes open launchpad
 
 ```
-Trade (any token on KAERU PROTOCOL)
+Trade (any token born from KAERU POND)
 ↓
 0.3% fee total
 ↓
@@ -163,12 +242,8 @@ Trade (any token on KAERU PROTOCOL)
 └── 0.20% → $KAERU holders (SOL rewards)
 ```
 
-**Why this model works:**
-
-$KAERU holders receive SOL generated by **bot activity** — not from new investors entering the ecosystem. This is structurally different from a Ponzi scheme. It is closer to how Uniswap's UNI token captures value from protocol usage fees.
-
 ```
-More tokens launch on KAERU PROTOCOL
+More tokens born from KAERU POND
 ↓
 More bots pay tax
 ↓
@@ -176,21 +251,15 @@ More SOL flows to $KAERU holders
 ↓
 $KAERU becomes more valuable
 ↓
-More devs want to launch on KAERU PROTOCOL
+More devs want to launch on KAERU POND
 ```
-
-The more the protocol is used, the more $KAERU holders earn — without depending on new investors buying in.
 
 ---
 
-## 7. Jackpot Pool (Optional)
-
-A small portion of every trade fee goes into a jackpot pool.
+## 8. Jackpot Pool (Optional)
 
 ```
 Trade
-↓
-0.3% fee
 ↓
 0.1% → Jackpot Pool
 
@@ -199,119 +268,114 @@ Every 100 trades
 1 random trader wins the pool
 ```
 
-This creates organic excitement without fake pumps.
-
 ---
 
-## 8. The Role of $KAERU
+## 9. The Role of $KAERU
 
-$KAERU is the first coin launched under this vision. It exists on pump.fun today — and it is the foundation everything is built on.
+$KAERU is the origin. The foundation. The reason KAERU POND exists.
 
 ### Why hold $KAERU?
 
 **1. SOL rewards**
-Every token launched on KAERU PROTOCOL collects bot tax. A portion is distributed to $KAERU holders in SOL — automatically. The more tokens launch, the more SOL flows to holders.
+Every token born from KAERU POND flows bot tax and sell tax to $KAERU holders — automatically. The bigger the pond grows, the more SOL flows.
 
 **2. Priority access**
-When new tokens launch on KAERU PROTOCOL, $KAERU holders get in first — before the public.
+$KAERU holders get into new KAERU POND launches before the public.
 
 **3. Trust proof**
-Holding $KAERU from the beginning is proof that you believed in honest crypto before it was cool.
+Holding $KAERU from the beginning is proof that you believed in honest crypto before it was the standard.
 
-**4. Growing rewards over time**
-In Phase 1, holders receive 0.1% of bot tax. In Phase 2, this grows to 0.2% — across every token on the launchpad. Early holders benefit most from the protocol's growth.
+**4. Growing rewards**
+Phase 1: 0.1% of bot tax. Phase 2: 0.2% across every token in the pond.
 
 ### The flywheel
 
 ```
-More devs use KAERU PROTOCOL
+More tokens born from KAERU POND
 ↓
-More tokens with honest structure exist
+More honest tokens exist in the world
 ↓
 KAERU PROTOCOL becomes the trust standard
 ↓
-More devs want to be associated with KAERU
+More devs want to launch from KAERU POND
 ↓
-More devs use KAERU PROTOCOL
+More SOL flows to $KAERU holders
 ```
-
-$KAERU is not just a memecoin. It is the foundation of a trustless ecosystem.
 
 ---
 
-## 9. Roadmap
+## 10. Roadmap
 
 ### Phase 0 — The Origin
 *Now*
 
 - $KAERU lives on pump.fun
 - Building community and trust
-- Developing the KAERU PROTOCOL whitepaper
+- KAERU PROTOCOL whitepaper published
 - Reaching graduation ($69K market cap)
 - LP locked on graduation
-- $KAERU becomes the center of the entire ecosystem
 
-### Phase 1 — KAERU CASINO
+### Phase 1 — $POND is born
 *Next*
 
-- Launch a new coin on Solana using KAERU PROTOCOL
-- Smart contract with bot tax, Kaeru Egg, dev lock, fixed supply
-- Bot tax split: 0.1% burn / 0.1% LP / 0.1% → $KAERU holders in SOL
-- This is the model case — proof that the system works
+- KAERU POND launches $POND on Solana
+- Full KAERU PROTOCOL: bot tax + Kaeru Egg + sell tax + auto buyback + dev lock + fixed supply
+- Bot tax: 0.1% burn / 0.1% LP / 0.1% → $KAERU holders in SOL
+- Proof that the system works
 - $KAERU holders get priority access
 
-### Phase 2 — KAERU FACTORY
+### Phase 2 — KAERU POND opens
 *Future*
 
-- Turn KAERU CASINO into an open launchpad
-- Any developer can launch using the same standard
-- Every token's bot tax flows to $KAERU holders in SOL (0.2%)
-- $KAERU is the trust layer and revenue layer for the entire ecosystem
+- KAERU POND becomes an open launchpad
+- Any developer can launch using the audited standard
+- Every token's bot tax flows to $KAERU holders (0.2%)
+- The pond keeps growing
 
 ### The Big Picture
 
 ```
-$KAERU (Phase 0)
+$KAERU (Phase 0) — the origin
 ↓
-KAERU CASINO (Phase 1) → proves the model
+$POND (Phase 1) — the proof
 ↓
-KAERU FACTORY (Phase 2) → open standard
+KAERU POND open (Phase 2) — the ecosystem
 ↓
-KAERU PROTOCOL becomes the honest launchpad
+Every honest token strengthens the pond
 ```
 
 ---
 
-## 10. What We Are NOT
+## 11. What We Are NOT
 
 - We are not a pump and dump
 - We are not paying for promotions or shills
 - We are not making promises we cannot keep
 - We are not hiding who we are
+- We are not asking you to trust us — we are building a system that doesn't require it
 
 ---
 
-## 11. Open Questions (TBD)
-
-These design decisions are still being finalized. Community input welcome.
+## 12. Open Questions (TBD)
 
 | Question | Options | Status |
 |----------|---------|--------|
 | Kaeru Egg trigger | Per purchase vs. first purchase per wallet | Under discussion |
 | Kaeru Egg threshold | Fixed (60s) vs. dynamic based on volume | Under discussion |
-| Treasury usage | Governance vote vs. core team discretion | Under discussion |
+| Sell tax rate | 0.25% – 1% range | Under discussion |
+| Auto buyback threshold | Fixed pool size vs. time-based trigger | Under discussion |
 
 ---
 
-## 12. Conclusion
+## 13. Conclusion
 
 Trust is the only real utility in crypto.
 
 KAERU PROTOCOL is an attempt to make trust structural — not just a promise, but a system.
 
-Two layers of protection. Honest tokenomics. No hidden incentives to rug.
+Three layers of protection. Honest tokenomics. A dev that cannot interfere even if they wanted to.
 
-We are small. We are early. We are honest.
+The pond is small. The pond is early. The pond is honest.
 
 *No rug. Just honest frogs. 🐸*
 
@@ -319,11 +383,11 @@ We are small. We are early. We are honest.
 
 ## Contact
 
-- Twitter: [@kaeru_network](https://twitter.com/kaeru_network)
+- Twitter: [@kaeru_net](https://twitter.com/kaeru_net)
 - Telegram: [t.me/kaeru_network](https://t.me/kaeru_network)
 - Website: [kaeru-network.github.io/kaeru-network](https://kaeru-network.github.io/kaeru-network)
-- CA: `3V9N5MH5ZnTWrka1Z98iTY3ByfUzrK7bwpwr5d2kpump`
+- $KAERU CA: `3V9N5MH5ZnTWrka1Z98iTY3ByfUzrK7bwpwr5d2kpump`
 
 ---
 
-*v0.3 — This is a living document. Details will be updated as the protocol develops.*
+*v0.5 — This is a living document. Details will be updated as the protocol develops.*
